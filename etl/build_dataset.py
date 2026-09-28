@@ -104,10 +104,18 @@ def main():
     # Ordiniamo per prezzo crescente (dal più economico al più caro)
     risultati.sort(key=lambda x: x["prezzo_gasolio"])
 
-    # 4. Salvataggio in JSON compatto
-    output_filename = "gasolio_focus.json"
-    with open(output_filename, "w", encoding="utf-8") as f:
+    # 4. Salvataggio in JSON compatto (direttamente per il Frontend Vite)
+    import os
+    from pathlib import Path
+    
+    output_dir = Path(__file__).parent.parent / "web" / "public" / "data"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_filepath = output_dir / "gasolio_focus.json"
+
+    with open(output_filepath, "w", encoding="utf-8") as f:
         json.dump(risultati, f, ensure_ascii=False, indent=2)
+        
+    output_filename = str(output_filepath)
 
     print(f"\n Operazione conclusa con successo!")
     print(f"- Impianti con prezzo Gasolio Self attivo: {len(risultati)}")
