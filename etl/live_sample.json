@@ -1,0 +1,1885 @@
+{
+  "success": true,
+  "center": {
+    "lat": 44.922622898893295,
+    "lng": 8.632133689101028
+  },
+  "results": [
+    {
+      "id": 20730,
+      "name": "ALESSANDRIA ACQUI",
+      "fuels": [
+        {
+          "id": 123376104,
+          "price": 2.02,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123376105,
+          "price": 2.22,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.89126320360915,
+        "lng": 8.589333146810532
+      },
+      "insertDate": "2026-09-28T17:11:26+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "3.0665449061611163"
+    },
+    {
+      "id": 38868,
+      "name": "ALESSANDRIA - S.S.30",
+      "fuels": [
+        {
+          "id": 123375888,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123375889,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123358221,
+          "price": 0.649,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.88638436498143,
+        "lng": 8.615406397730112
+      },
+      "insertDate": "2026-09-28T17:06:58+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "2.8485487455919003"
+    },
+    {
+      "id": 46486,
+      "name": "KEROPETROL SPA SPINETTA MARENGO",
+      "fuels": [
+        {
+          "id": 123307120,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123307119,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123307122,
+          "price": 2.39,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123307121,
+          "price": 2.39,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123307123,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.88968549657263,
+        "lng": 8.68751133854903
+      },
+      "insertDate": "2026-09-28T16:12:28+02:00",
+      "address": null,
+      "brand": "KEROPETROL",
+      "distance": "6.226896847151194"
+    },
+    {
+      "id": 54952,
+      "name": "NEW ENERGY DI RRUSHI BUJAR E C. S.A.S.",
+      "fuels": [
+        {
+          "id": 123372857,
+          "price": 2.329,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123372856,
+          "price": 2.179,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123372859,
+          "price": 2.549,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123372858,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9321969901607,
+        "lng": 8.58518036837404
+      },
+      "insertDate": "2026-09-28T15:21:26+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "3.2489932527548455"
+    },
+    {
+      "id": 54776,
+      "name": "GNL CARBURANTI SRL",
+      "fuels": [
+        {
+          "id": 123372097,
+          "price": 2.189,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123372096,
+          "price": 2.189,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123372095,
+          "price": 2.319,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123372094,
+          "price": 2.319,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123372093,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123372092,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": true
+        },
+        {
+          "id": 123372089,
+          "price": 1.959,
+          "name": "L-GNC",
+          "fuelId": 323,
+          "isSelf": false
+        },
+        {
+          "id": 123372088,
+          "price": 1.959,
+          "name": "L-GNC",
+          "fuelId": 323,
+          "isSelf": true
+        },
+        {
+          "id": 123372091,
+          "price": 1.909,
+          "name": "GNL",
+          "fuelId": 324,
+          "isSelf": false
+        },
+        {
+          "id": 123372090,
+          "price": 1.909,
+          "name": "GNL",
+          "fuelId": 324,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.92763801980061,
+        "lng": 8.585374511148899
+      },
+      "insertDate": "2026-09-28T15:03:56+02:00",
+      "address": null,
+      "brand": "PompeBianche",
+      "distance": "2.9093904024006476"
+    },
+    {
+      "id": 62936,
+      "name": "TAMOIL 2232 ALESSANDRIA",
+      "fuels": [
+        {
+          "id": 123370481,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123370480,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123365370,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123321867,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123306114,
+          "price": 0.679,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123246423,
+          "price": 2.329,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": false
+        },
+        {
+          "id": 123321868,
+          "price": 2.329,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.904944,
+        "lng": 8.6866844
+      },
+      "insertDate": "2026-09-28T14:05:13+02:00",
+      "address": null,
+      "brand": "Tamoil",
+      "distance": "5.699533050526121"
+    },
+    {
+      "id": 5512,
+      "name": "ALESSANDRIA Via Giordano Bruno 69",
+      "fuels": [
+        {
+          "id": 123369390,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123369391,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91993339554133,
+        "lng": 8.595036822090151
+      },
+      "insertDate": "2026-09-28T13:15:00+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "1.8025162908155603"
+    },
+    {
+      "id": 34364,
+      "name": "8001",
+      "fuels": [
+        {
+          "id": 123367854,
+          "price": 2.129,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123367853,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.90697132352871,
+        "lng": 8.61145868897438
+      },
+      "insertDate": "2026-09-28T12:36:58+02:00",
+      "address": null,
+      "brand": "Tamoil",
+      "distance": "0.6248718479730009"
+    },
+    {
+      "id": 6878,
+      "name": "Eni di Mazzoleni Federico",
+      "fuels": [
+        {
+          "id": 123338893,
+          "price": 2.2,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123364817,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123338892,
+          "price": 2.4,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123364816,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123364815,
+          "price": 2.14,
+          "name": "Blue Super",
+          "fuelId": 5,
+          "isSelf": true
+        },
+        {
+          "id": 123338891,
+          "price": 2.5,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": false
+        },
+        {
+          "id": 123364814,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.90949182294023,
+        "lng": 8.631437122821808
+      },
+      "insertDate": "2026-09-28T11:48:06+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "1.3240996421339486"
+    },
+    {
+      "id": 51468,
+      "name": "51017 – Spinetta Marengo",
+      "fuels": [
+        {
+          "id": 123360745,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123360743,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123360742,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        },
+        {
+          "id": 123360744,
+          "price": 2.19,
+          "name": "HVOlution",
+          "fuelId": 394,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.89610095433511,
+        "lng": 8.666286183953996
+      },
+      "insertDate": "2026-09-28T11:34:04+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "4.409141365831286"
+    },
+    {
+      "id": 10587,
+      "name": "impianto 51014",
+      "fuels": [
+        {
+          "id": 123360609,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123360608,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123360607,
+          "price": 2.14,
+          "name": "Blue Super",
+          "fuelId": 5,
+          "isSelf": true
+        },
+        {
+          "id": 123360606,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91049176464411,
+        "lng": 8.628135323524475
+      },
+      "insertDate": "2026-09-28T11:33:17+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "1.0478635495443525"
+    },
+    {
+      "id": 57648,
+      "name": "01460",
+      "fuels": [
+        {
+          "id": 123359331,
+          "price": 2.21,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123359330,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123359327,
+          "price": 2.41,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123359326,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123359325,
+          "price": 2.51,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": false
+        },
+        {
+          "id": 123359324,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        },
+        {
+          "id": 123359329,
+          "price": 2.41,
+          "name": "HVOlution",
+          "fuelId": 394,
+          "isSelf": false
+        },
+        {
+          "id": 123359328,
+          "price": 2.19,
+          "name": "HVOlution",
+          "fuelId": 394,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.901883,
+        "lng": 8.6191809
+      },
+      "insertDate": "2026-09-28T11:26:00+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "1.1721573025517191"
+    },
+    {
+      "id": 62650,
+      "name": "IP TANGENZIALE",
+      "fuels": [
+        {
+          "id": 123349568,
+          "price": 2.367,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123349567,
+          "price": 2.156,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123349570,
+          "price": 2.597,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123349569,
+          "price": 2.386,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.886467,
+        "lng": 8.615013
+      },
+      "insertDate": "2026-09-28T10:38:11+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "2.8391402473936"
+    },
+    {
+      "id": 6879,
+      "name": "Eni di mazzoleni Federico",
+      "fuels": [
+        {
+          "id": 123343516,
+          "price": 2.21,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123343515,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123343513,
+          "price": 2.41,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123343512,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123343511,
+          "price": 2.51,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": false
+        },
+        {
+          "id": 123343510,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        },
+        {
+          "id": 123343514,
+          "price": 2.19,
+          "name": "HVOlution",
+          "fuelId": 394,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9208700712194,
+        "lng": 8.592845499515533
+      },
+      "insertDate": "2026-09-28T09:32:43+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "2.004023799866456"
+    },
+    {
+      "id": 59444,
+      "name": "Alessandria",
+      "fuels": [
+        {
+          "id": 123339201,
+          "price": 2.127,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123339199,
+          "price": 2.299,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123339197,
+          "price": 0.647,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.9213885,
+        "lng": 8.5506581
+      },
+      "insertDate": "2026-09-28T08:42:52+02:00",
+      "address": null,
+      "brand": "PompeBianche",
+      "distance": "5.172775732202712"
+    },
+    {
+      "id": 45880,
+      "name": "CIMOIL",
+      "fuels": [
+        {
+          "id": 123318120,
+          "price": 2.147,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123304189,
+          "price": 2.147,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123332370,
+          "price": 2.357,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123241437,
+          "price": 2.357,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123309955,
+          "price": 1.957,
+          "name": "Metano",
+          "fuelId": 3,
+          "isSelf": false
+        },
+        {
+          "id": 123304187,
+          "price": 1.957,
+          "name": "Metano",
+          "fuelId": 3,
+          "isSelf": true
+        },
+        {
+          "id": 123309954,
+          "price": 0.697,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123304185,
+          "price": 0.697,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.900659000123,
+        "lng": 8.654644000123
+      },
+      "insertDate": "2026-09-28T07:49:52+02:00",
+      "address": null,
+      "brand": "PompeBianche",
+      "distance": "3.36722590930449"
+    },
+    {
+      "id": 34482,
+      "name": "Eni 52906",
+      "fuels": [
+        {
+          "id": 123330384,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123330383,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123330382,
+          "price": 1.995,
+          "name": "Blue Super",
+          "fuelId": 5,
+          "isSelf": true
+        },
+        {
+          "id": 123330381,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.97819451085999,
+        "lng": 8.56962963938713
+      },
+      "insertDate": "2026-09-28T07:42:31+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "8.18093082330753"
+    },
+    {
+      "id": 51412,
+      "name": "EGI-2GO SRL - Alessandria",
+      "fuels": [
+        {
+          "id": 123326262,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123326261,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123326264,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123326263,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123326266,
+          "price": 2.429,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": false
+        },
+        {
+          "id": 123326265,
+          "price": 2.429,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.919293699704404,
+        "lng": 8.596567739871148
+      },
+      "insertDate": "2026-09-28T07:13:15+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "1.6626223063339558"
+    },
+    {
+      "id": 13220,
+      "name": "TAMOIL",
+      "fuels": [
+        {
+          "id": 123324089,
+          "price": 2.349,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123306080,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123324086,
+          "price": 2.599,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123324085,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123324087,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123324088,
+          "price": 2.569,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": false
+        },
+        {
+          "id": 123305349,
+          "price": 2.369,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.85094129357722,
+        "lng": 8.613011920009285
+      },
+      "insertDate": "2026-09-28T06:40:10+02:00",
+      "address": null,
+      "brand": "Tamoil",
+      "distance": "6.791257548317965"
+    },
+    {
+      "id": 17274,
+      "name": "KEROPETROL",
+      "fuels": [
+        {
+          "id": 123324024,
+          "price": 2.249,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123324023,
+          "price": 2.249,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123324026,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123324025,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.84855109778659,
+        "lng": 8.574221581220627
+      },
+      "insertDate": "2026-09-28T06:39:02+02:00",
+      "address": null,
+      "brand": "KEROPETROL",
+      "distance": "7.752346119926059"
+    },
+    {
+      "id": 29129,
+      "name": "R&C DI FRONTINO NUNZIO",
+      "fuels": [
+        {
+          "id": 123323873,
+          "price": 2.239,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123323872,
+          "price": 2.139,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123323875,
+          "price": 2.479,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123323874,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123323871,
+          "price": 2.679,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": false
+        },
+        {
+          "id": 123323870,
+          "price": 2.579,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.90359629631582,
+        "lng": 8.649230897426605
+      },
+      "insertDate": "2026-09-28T06:33:41+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "2.8531706255602245"
+    },
+    {
+      "id": 44432,
+      "name": "4127",
+      "fuels": [
+        {
+          "id": 123321766,
+          "price": 2.129,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123246724,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123246725,
+          "price": 2.349,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.96712830460815,
+        "lng": 8.610479665582034
+      },
+      "insertDate": "2026-09-28T00:08:01+02:00",
+      "address": null,
+      "brand": "Tamoil",
+      "distance": "6.140269158923386"
+    },
+    {
+      "id": 61244,
+      "name": "IL CHIOZZETTO",
+      "fuels": [
+        {
+          "id": 123321543,
+          "price": 2.139,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123321542,
+          "price": 2.139,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123321545,
+          "price": 2.355,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123321544,
+          "price": 2.355,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123321546,
+          "price": 0.697,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123321541,
+          "price": 2.299,
+          "name": "HVO",
+          "fuelId": 437,
+          "isSelf": false
+        },
+        {
+          "id": 123321540,
+          "price": 2.299,
+          "name": "HVO",
+          "fuelId": 437,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9098796,
+        "lng": 8.6310894
+      },
+      "insertDate": "2026-09-27T23:48:25+02:00",
+      "address": null,
+      "brand": "Restiani",
+      "distance": "1.2887329999315513"
+    },
+    {
+      "id": 63659,
+      "name": "ESSO - ALESSANDRIA VIA MARENGO",
+      "fuels": [
+        {
+          "id": 123319592,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123223167,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9091624,
+        "lng": 8.6329081
+      },
+      "insertDate": "2026-09-27T22:02:06+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "1.4451190227839643"
+    },
+    {
+      "id": 63644,
+      "name": "IP ALESSANDRIA",
+      "fuels": [
+        {
+          "id": 123316195,
+          "price": 2.138,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123316194,
+          "price": 2.349,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91259908503292,
+        "lng": 8.608067957077802
+      },
+      "insertDate": "2026-09-27T20:19:19+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "0.5499223156641884"
+    },
+    {
+      "id": 58502,
+      "name": "Mazzoleni Federico 11482",
+      "fuels": [
+        {
+          "id": 123315191,
+          "price": 1.99,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123315190,
+          "price": 2.19,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123293869,
+          "price": 2.049,
+          "name": "Blue Super",
+          "fuelId": 5,
+          "isSelf": true
+        },
+        {
+          "id": 123315189,
+          "price": 2.29,
+          "name": "Blue Diesel",
+          "fuelId": 20,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.92087698705179,
+        "lng": 8.59280967335194
+      },
+      "insertDate": "2026-09-27T18:28:05+02:00",
+      "address": null,
+      "brand": "AgipEni",
+      "distance": "2.006805967223938"
+    },
+    {
+      "id": 41694,
+      "name": "EUROPAM - CASCINA GROSSA",
+      "fuels": [
+        {
+          "id": 123246578,
+          "price": 2.147,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123298840,
+          "price": 2.367,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123246576,
+          "price": 0.697,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123298842,
+          "price": 2.367,
+          "name": "Gasolio HVO",
+          "fuelId": 413,
+          "isSelf": false
+        },
+        {
+          "id": 123298841,
+          "price": 2.367,
+          "name": "Gasolio HVO",
+          "fuelId": 413,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.88478789339822,
+        "lng": 8.713609278202057
+      },
+      "insertDate": "2026-09-26T13:38:03+02:00",
+      "address": null,
+      "brand": "Europam",
+      "distance": "8.335617788000869"
+    },
+    {
+      "id": 60472,
+      "name": "IP",
+      "fuels": [
+        {
+          "id": 123296712,
+          "price": 2.239,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123296713,
+          "price": 2.439,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91939743419402,
+        "lng": 8.61233416718187
+      },
+      "insertDate": "2026-09-26T12:40:57+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "0.848875820285125"
+    },
+    {
+      "id": 57745,
+      "name": "GLI s.a.s.",
+      "fuels": [
+        {
+          "id": 123295987,
+          "price": 2.339,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123295986,
+          "price": 2.129,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123295989,
+          "price": 2.609,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123295988,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123295985,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123295991,
+          "price": 2.709,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": false
+        },
+        {
+          "id": 123295990,
+          "price": 2.499,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9966947,
+        "lng": 8.6390563
+      },
+      "insertDate": "2026-09-26T12:29:25+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "9.606012180612135"
+    },
+    {
+      "id": 38685,
+      "name": "Valfuel snc",
+      "fuels": [
+        {
+          "id": 123293113,
+          "price": 2.449,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123293112,
+          "price": 2.199,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123293115,
+          "price": 2.689,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123293114,
+          "price": 2.439,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123293116,
+          "price": 0.705,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.93864445373909,
+        "lng": 8.624820113182068
+      },
+      "insertDate": "2026-09-26T11:29:27+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "3.0618904038691466"
+    },
+    {
+      "id": 42510,
+      "name": "ERRETRE SRL VIA CASALCERMELLI",
+      "fuels": [
+        {
+          "id": 123288388,
+          "price": 2.119,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123288387,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123288389,
+          "price": 0.709,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123290158,
+          "price": 2.359,
+          "name": "HVO",
+          "fuelId": 424,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.89145873426048,
+        "lng": 8.60159620642662
+      },
+      "insertDate": "2026-09-26T10:41:03+02:00",
+      "address": null,
+      "brand": "PompeBianche",
+      "distance": "2.51623687168443"
+    },
+    {
+      "id": 63085,
+      "name": "ESSO - ALESSANDRIA",
+      "fuels": [
+        {
+          "id": 123287636,
+          "price": 2.159,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123287637,
+          "price": 2.399,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 119130376,
+          "price": 2.169,
+          "name": "Supreme Diesel",
+          "fuelId": 327,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9033745,
+        "lng": 8.6065375
+      },
+      "insertDate": "2026-09-26T10:00:47+02:00",
+      "address": null,
+      "brand": "Esso",
+      "distance": "1.1679488965192801"
+    },
+    {
+      "id": 63672,
+      "name": "ALESSANDRIA SS31 KM 52,300/REG S MICHELE",
+      "fuels": [
+        {
+          "id": 123268753,
+          "price": 2.219,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123268754,
+          "price": 2.389,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.92659,
+        "lng": 8.58603
+      },
+      "insertDate": "2026-09-26T08:06:05+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "2.799111570583198"
+    },
+    {
+      "id": 10209,
+      "name": "IP",
+      "fuels": [
+        {
+          "id": 123254367,
+          "price": 2.379,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": false
+        },
+        {
+          "id": 123254366,
+          "price": 2.179,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123254369,
+          "price": 2.649,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": false
+        },
+        {
+          "id": 123254368,
+          "price": 2.449,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123254370,
+          "price": 0.729,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.93263457006159,
+        "lng": 8.625420928001404
+      },
+      "insertDate": "2026-09-26T07:01:50+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "2.436790786213961"
+    },
+    {
+      "id": 7292,
+      "name": "ALESSANDRIA - CC PANORAMA",
+      "fuels": [
+        {
+          "id": 123248864,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248865,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123248866,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        }
+      ],
+      "location": {
+        "lat": 44.90220486835905,
+        "lng": 8.63087385892868
+      },
+      "insertDate": "2026-09-26T01:35:21+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "1.6580446955608037"
+    },
+    {
+      "id": 6405,
+      "name": "ALESSANDRIA CASALCERMELLI IMP.Q8",
+      "fuels": [
+        {
+          "id": 123248860,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248861,
+          "price": 2.379,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.88842783915975,
+        "lng": 8.598518371582031
+      },
+      "insertDate": "2026-09-26T01:35:19+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "2.924955970570837"
+    },
+    {
+      "id": 11454,
+      "name": "ALESSANDRIA-LOC ASTUTI SS 10 KM 90+300",
+      "fuels": [
+        {
+          "id": 123248856,
+          "price": 2.139,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248857,
+          "price": 2.349,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 12466466,
+          "price": 1.597,
+          "name": "Hi-Q Diesel",
+          "fuelId": 6,
+          "isSelf": true
+        },
+        {
+          "id": 12466467,
+          "price": 1.799,
+          "name": "HiQ Perform+",
+          "fuelId": 28,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.92146011668297,
+        "lng": 8.579308046627034
+      },
+      "insertDate": "2026-09-26T01:35:18+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "3.000826294348062"
+    },
+    {
+      "id": 63217,
+      "name": "ALESSANDRIA SP 82 SPINETTA - SALE FRAZIONE CASTELCERIOLO",
+      "fuels": [
+        {
+          "id": 123248854,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248855,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91807356,
+        "lng": 8.70023798
+      },
+      "insertDate": "2026-09-26T01:35:18+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "6.74580805294051"
+    },
+    {
+      "id": 30831,
+      "name": "ALESSANDRIA - FZ.SPINETTA MARENGO SS. 10",
+      "fuels": [
+        {
+          "id": 123248852,
+          "price": 2.149,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248853,
+          "price": 2.359,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.8938111309523,
+        "lng": 8.672091364860535
+      },
+      "insertDate": "2026-09-26T01:35:17+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "4.930406293892303"
+    },
+    {
+      "id": 34564,
+      "name": "ALESSANDRIA LUNGO TANARO SOLFERINO",
+      "fuels": [
+        {
+          "id": 123248848,
+          "price": 2.169,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123248849,
+          "price": 2.319,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.91975808599873,
+        "lng": 8.613127919643375
+      },
+      "insertDate": "2026-09-26T01:35:16+02:00",
+      "address": null,
+      "brand": "Q8",
+      "distance": "0.8751535258758554"
+    },
+    {
+      "id": 30525,
+      "name": "7630",
+      "fuels": [
+        {
+          "id": 123247248,
+          "price": 2.139,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123247246,
+          "price": 2.389,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123247247,
+          "price": 2.359,
+          "name": "HVO",
+          "fuelId": 404,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.89691515920304,
+        "lng": 8.587306067347527
+      },
+      "insertDate": "2026-09-26T00:16:42+02:00",
+      "address": null,
+      "brand": "Tamoil",
+      "distance": "2.751518300043502"
+    },
+    {
+      "id": 59034,
+      "name": "LCO - ALESSANDRIA",
+      "fuels": [
+        {
+          "id": 123238478,
+          "price": 2.129,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 123238476,
+          "price": 2.289,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        },
+        {
+          "id": 123238477,
+          "price": 0.699,
+          "name": "GPL",
+          "fuelId": 4,
+          "isSelf": false
+        },
+        {
+          "id": 123238479,
+          "price": 2.299,
+          "name": "HVO",
+          "fuelId": 424,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.9190422,
+        "lng": 8.5972819
+      },
+      "insertDate": "2026-09-25T18:56:52+02:00",
+      "address": null,
+      "brand": "PompeBianche",
+      "distance": "1.5998797420767172"
+    },
+    {
+      "id": 55585,
+      "name": "Distributore IP Aci Servizi Alessandria srl",
+      "fuels": [
+        {
+          "id": 120258819,
+          "price": 1.959,
+          "name": "Benzina",
+          "fuelId": 1,
+          "isSelf": true
+        },
+        {
+          "id": 120258820,
+          "price": 2.159,
+          "name": "Gasolio",
+          "fuelId": 2,
+          "isSelf": true
+        }
+      ],
+      "location": {
+        "lat": 44.911802832052494,
+        "lng": 8.607916831970215
+      },
+      "insertDate": "2026-07-24T10:39:30+02:00",
+      "address": null,
+      "brand": "Api-Ip",
+      "distance": "0.5581984577781035"
+    }
+  ]
+}

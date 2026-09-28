@@ -2,8 +2,8 @@
 
 Registro di bordo del progetto **Gasolio Radar (MIMIT Fuel Tracker)**. Ogni sessione di lavoro significativa aggiorna questo file.
 
-- **Ultimo aggiornamento:** Milestone 1 — Freshness Warning & Filtro Impianti Attivi (+ sanificazione preliminare).
-- **Stato complessivo:** 🟢 operativo — pipeline dati e dashboard funzionanti end-to-end, lint pulito (0 warning, 0 errori).
+- **Ultimo aggiornamento:** Sprint 1 — Backend & Live Engine Mezzi Pesanti (completato).
+- **Stato complessivo:** 🟢 operativo — pipeline dati e dashboard funzionanti end-to-end, lint pulito (0 warning, 0 errori), nuovo engine di sincronizzazione flotta live attivo su 2 POI aziendali.
 
 ---
 
@@ -73,7 +73,58 @@ Tutto quanto segue è verificato e in esercizio.
 
 ---
 
+## 3.5 Sprint 1 — Backend & Live Engine Mezzi Pesanti (Completata)
+
+Obiettivo: superare lo snapshot batch statico (`build_dataset.py`) con un engine che interroga la **Live API MIMIT** centrata sui POI aziendali e isola i distributori realmente accessibili a mezzi pesanti.
+
+### Nuovi artefatti
+
+| File | Ruolo |
+| --- | --- |
+| `config/pois.json` | Punti di interesse della flotta (ID, nome, provincia, lat/lng, raggio km). Contiene `base_roccalumera` (ME) e `base_alessandria` (AL). |
+| `config/overrides.json` | Patch manuali per ID impianto (`lat`, `lon`, `nome`, `note`): corregge coordinate errate dell'anagrafica senza toccare il codice. Attualmente `{}`. |
+| `etl/sync_fleet.py` | Engine di sincronizzazione real-time (fasi A–G, dettaglio sotto). Eseguibile con `cd etl` → `python sync_fleet.py`. |
+| `web/public/data/fleet_data.json` | Dataset di output consumabile dal frontend: record ordinati per prezzo crescente. |
+
+### Flusso dell'engine (`etl/sync_fleet.py`)
+- [x] **(A)** Caricamento `config/pois.json` + `config/overrides.json`, con validazione dei campi indispensabili, clamp del raggio a 1–10 km (limite dell'API) e scarto dei POI fuori dal bounding box Italia.
+- [x] **(B)** Anagrafica MIMIT (`anagrafica_impianti_attivi.csv`, separatore `|`) mappata per ID impianto su Bandiera, Gestore, Indirizzo, Comune, Provincia, Tipo Impianto, Nome. **Cache giornaliera** in `etl/anagrafica_cache.csv`: riusata se scritta oggi, altrimenti riscaricata (con ripiego sulla cache stantia se la rete non risponde).
+- [x] **(C)** Polling live per POI: `POST https://carburanti.mise.gov.it/ospzApi/search/zone` con payload `{"points": [...], "radius": ..., "fuelType": "2-1"}` e header mimetici (User-Agent Chrome, `Origin` e `Referer` del Ministero). Fino a 3 tentativi con backoff per POI.
+- [x] **(D)** Applicazione overrides: sovrascrittura di coordinate, nome e note per ID impianto.
+- [x] **(E)** Classificazione `is_arteria_principale`: `True` se `Tipo Impianto == "Autostradale"`, oppure se nome/indirizzo contengono un riferimento a grande arteria o area logistica (`S.S.`/`S.P.`/`S.R.`+numero, `A1`–`A99`, Autostrada, Tangenziale, Raccordo, Circonvallazione, Interporto, Zona Industriale, Area PIP), altrimenti `False`.
+- [x] **(F)** Deduplicazione: un impianto visto da più POI viene tenuto una volta sola, associato al POI con distanza minima.
+- [x] **(G)** Output in `web/public/data/fleet_data.json` (ordinato per prezzo) e sintesi a terminale con totale live, conteggio idonei e top 3 per POI.
+
+### Contratto dati di `fleet_data.json`
+Array di oggetti, ciascuno con: `id`, `nome`, `gestore`, `indirizzo`, `comune`, `provincia`, `lat`, `lon`, `prezzo_gasolio`, `data_comunicazione` (ISO 8601 da `insertDate`), `distanza_km` (1 decimale), `tipo_impianto`, `is_arteria_principale`, `poi_id`, `poi_nome`, `note`.
+
+### Verifiche eseguite
+- [x] `python sync_fleet.py` con venv attivo: **exit code 0**, HTTP **200** su entrambi i POI (Roccalumera, Alessandria).
+- [x] `fleet_data.json` generato e rivalidato con `json.loads`: 51 record, ID univoci, tutti i campi anagrafici popolati (zero valori mancanti), coordinate dentro il bounding box Italia, prezzi in ordine crescente.
+- [x] Classificazione `is_arteria_principale` verificata su 22 casi sintetici (0 errori), inclusi i falsi positivi da evitare: `S.R.L.` e la sigla merceologica `A2A` **non** classificano come arteria.
+- [x] Pipeline overrides verificata end-to-end: patch su un ID impianto applicata correttamente al JSON prodotto, poi rimossa.
+- [x] Cache anagrafica verificata: secondo run istantaneo con "Anagrafica da cache giornaliera".
+
+### Conteggi sul run live (2026-09-28)
+- **51** distributori live rilevati nei due raggi (14 Roccalumera + 37 Alessandria), **51** con Gasolio Self comunicato.
+- **12 impianti idonei** ai mezzi pesanti (2 su Roccalumera, 10 su Alessandria); **39 scartati** come urbani/vie secondarie.
+- Top 3 Alessandria: € 2,190 (4,1 km, SS 10 Spinetta Marengo), € 2,190 (8,2 km, S.S. 30), € 2,355 (6,3 km, S.S. 10).
+- Top 2 Roccalumera (unico idoneo alla SS 114): € 2,419 (3,8 km, SS.114), € 2,469 (4,1 km, A18 autostradale).
+
+> Nota di design: la regex delle arterie richiede un **numero** dopo `S.S.`/`S.P.`/`S.R.` e dopo la lettera autostradale. Senza questo vincolo `S.R.L.` (ragioni sociali) e sigle come `A2A` verrebbero classificate erroneamente come grandi arterie. Noto falso negativo residuo: le strade indicate solo con il nome (es. "Orientale Sicula", "Consolare Valeria") non vengono riconosciute — candidato a estensione futura se emergerà dai dati reali.
+
+---
+
 ## 4. Roadmap / Backlog Prossimi Task
+
+### Sprint 2 — Frontend Minimal Istituzionale Mezzi Pesanti (prossimo)
+Vista dedicata alla flotta che consuma `web/public/data/fleet_data.json`:
+- Interruttore **"Solo grandi arterie"** che filtra sul flag `is_arteria_principale`, con la mappa limitata ai distributori accessibili ai mezzi pesanti.
+- Selettore **POI / base** (`poi_id`) accanto al filtro provincia esistente, con `fitBounds` sul perimetro della base.
+- Distanza dal POI visibile in card e popup (`distanza_km`) e ordinamento per prezzo già garantito dal dataset.
+- Badge "Accesso mezzi pesanti" e riga `note` quando l'impianto è stato corretto manualmente via `config/overrides.json`.
+- Riuso dell'interazione bidirezionale card ↔ marker e del layout split-screen esistenti: nessuna nuova route, nessun tab.
+- Preparare lo script di build a servire entrambi i dataset (`gasolio_focus.json` + `fleet_data.json`) senza rompere il contratto attuale.
 
 ### Task 2 — Calcolatore Risparmio Ufficio
 Box dinamico con stima del risparmio in Euro per singolo pieno (serbatoio standard 50 L) rispetto alla media locale della zona filtrata. Utile per quantificare in modo immediato la convenienza di uno spostamento.
@@ -99,12 +150,18 @@ Nessun debito aperto: i 2 warning Oxlint rilevati sulla baseline sono stati sana
 - Sanificazione preliminare completata: rimozione dell'import inutilizzato `ExternalLink`, `useCallback` su `getPriceTier`, eliminazione del JSON duplicato legacy. Lint ora pulito (0 warning, 0 errori).
 - Layout split-screen e interazione bidirezionale card ↔ marker invariati, come da vincoli in [AGENTS.md](AGENTS.md).
 
+### Sessione 2026-09-28 — Sprint 1: Backend & Live Engine Mezzi Pesanti
+- **Obiettivo:** abbandonare lo snapshot batch statico e sincronizzare in tempo reale i distributori attorno ai POI aziendali, isolando quelli accessibili ai mezzi pesanti.
+- **Modifiche:** introdotti `config/pois.json`, `config/overrides.json`, `etl/sync_fleet.py` (fasi A–G) e l'output `web/public/data/fleet_data.json`. Nessun file di `web/src/` toccato: layout e interazione bidirezionale invariati.
+- **Verifiche eseguite:** `python sync_fleet.py` (exit 0, HTTP 200 su entrambi i POI), rivalidazione del JSON prodotto, 22 casi sintetici sulla regex delle arterie, test end-to-end della pipeline overrides, hit della cache anagrafica al secondo run.
+- **Pendenze aperte:** il frontend non consuma ancora `fleet_data.json` (Sprint 2); `etl/build_dataset.py` resta in esercizio e produce in parallelo `gasolio_focus.json`; falsi negativi residui sulle strade citate solo per nome (es. "Orientale Sicula", "Consolare Valeria").
+
 ### Template per le prossime sessioni
 
 ```markdown
 ## Sessione YYYY-MM-DD — <titolo>
 - Obiettivo:
 - Modifiche:
-- Verifiche eseguite: (npm run build / build_dataset.py / lint)
+- Verifiche eseguite: (npm run build / sync_fleet.py / build_dataset.py / lint)
 - Pendenze aperte:
 ```

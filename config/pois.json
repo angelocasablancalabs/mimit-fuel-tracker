@@ -1,0 +1,18 @@
+[
+  {
+    "id": "base_roccalumera",
+    "nome": "Base Roccalumera (ME)",
+    "provincia": "ME",
+    "lat": 37.968616,
+    "lng": 15.382088,
+    "radius": 10
+  },
+  {
+    "id": "base_alessandria",
+    "nome": "Base Alessandria",
+    "provincia": "AL",
+    "lat": 44.913661,
+    "lng": 8.711490,
+    "radius": 10
+  }
+]
