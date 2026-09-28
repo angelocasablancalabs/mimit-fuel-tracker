@@ -1,0 +1,26 @@
+# Ambiente e Segreti
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Dati grezzi e temporanei
+*.csv
+etl/raw/
+*.tmp
+
+# OS generati
+.DS_Store
+Thumbs.db
