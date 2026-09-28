@@ -12,13 +12,18 @@ Monorepo leggero composto da due moduli indipendenti e da un artefatto JSON che 
 
 ```
 mimit-fuel-tracker/
+├── config/
+│   ├── pois.json                 # Basi operative + 10 impianti POI fissi monitorati
+│   └── overrides.json            # Patch manuali per ID impianto (coordinate, nome, note)
 ├── etl/                          # Data pipeline Python (download + parsing + filtro)
-│   ├── build_dataset.py          # Entry point: genera il dataset per il frontend
+│   ├── build_dataset.py          # Snapshot batch: genera gasolio_focus.json
+│   ├── sync_fleet.py             # Engine live: genera fleet_data.json + city_index.json
 │   └── test_target.py            # Script diagnostico su una lista di impianti sentinella
 ├── web/                          # Frontend Vite + React
-│   ├── public/data/gasolio_focus.json   # Output dell'ETL, consumato dall'app
+│   ├── vite.config.js            # Reverse proxy /api/mimit → carburanti.mise.gov.it
+│   ├── public/data/              # Output dell'ETL: fleet_data.json, city_index.json
 │   └── src/
-│       ├── App.jsx               # Dashboard, stato, logica mappa e filtri
+│       ├── App.jsx               # Dashboard, tab, Radar Spot Live, logica mappa
 │       ├── App.css               # Design system scuro (layout a due pannelli)
 │       └── main.jsx              # Bootstrap React
 ├── AGENTS.md                     # Costituzione tecnica per agenti AI
@@ -60,6 +65,37 @@ Sorgenti ufficiali:
 - Anagrafica impianti: `https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv`
 - Prezzi comunicati: `https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv`
 
+### Fleet Engine e POI Fissi (vista attiva)
+
+La vista operativa della dashboard non consuma `gasolio_focus.json`, ma `fleet_data.json`, prodotto da `etl/sync_fleet.py`: un engine che interroga la **Live API MIMIT** (`POST /ospzApi/search/zone`) attorno alle basi aziendali e presidia i **10 Impianti POI Fissi Specifici** definiti in `config/pois.json`.
+
+```json
+{
+  "bases":              [ { "id": "base_roccalumera", "nome": "…", "provincia": "ME", "lat": …, "lng": …, "radius": 10 } ],
+  "monitored_stations": [ { "id": 4835, "nome_convenzionale": "ESSO S.Teresa", "provincia": "ME" } ]
+}
+```
+
+Ogni record di `fleet_data.json` porta `is_target_monitored: true` se l'ID appartiene a `monitored_stations`. Gli impianti target fuori dai raggi delle basi vengono interrogati attorno alle proprie coordinate (presidio) ed emessi comunque, anche senza prezzo comunicato (`prezzo_gasolio: null`), così la vista mostra sempre tutti e 10.
+
+```bash
+cd etl
+python sync_fleet.py                      # sincronizza basi + presidio dei 10 target
+python sync_fleet.py --no-monitor-sweep   # salta il presidio fuori raggio
+```
+
+Oltre a `web/public/data/fleet_data.json`, l'engine genera `web/public/data/city_index.json`: l'indice città → coordinate usato dal **Radar Spot Live** per la ricerca per zona.
+
+### Reverse proxy verso il Ministero (`/api/mimit`)
+
+Il browser non può chiamare direttamente `carburanti.mise.gov.it` (CORS e header `Origin`/`Referer` obbligatori). `web/vite.config.js` espone la rotta:
+
+```
+/api/mimit/ospzApi/search/zone  →  https://carburanti.mise.gov.it/ospzApi/search/zone
+```
+
+Il proxy rimuove il prefisso, imposta `changeOrigin: true` e riscrive `Origin`, `Referer` e `User-Agent`. È configurato sia in `server` (dev) sia in `preview`, quindi il Radar Spot Live funziona in entrambi i comandi locali. **Attenzione:** il proxy esiste solo nel server Vite; un deploy statico del bundle richiede un reverse proxy equivalente lato hosting.
+
 ### UI Web
 
 | Componente | Scelta tecnica |
@@ -72,10 +108,13 @@ Sorgenti ufficiali:
 | Lint | Oxlint |
 
 Logica di interfaccia rilevante:
-- **Fasce di prezzo** calcolate rispetto al minimo assoluto del dataset: `cheap` (≤ +0,05 €), `mid` (≤ +0,15 €), `expensive` (oltre).
-- **Click sulla card** → `map.flyTo` sulla stazione e apertura del popup del marker.
-- **Click sul marker** → selezione della card corrispondente nella sidebar.
-- **Filtri** (provincia + ricerca testuale su comune, gestore, indirizzo) ricalcolano sia la lista sia i marker, con `fitBounds` automatico sull'insieme filtrato.
+- **Vista di default `Impianti Monitorati (10)`**: i 10 POI fissi aziendali con ID, badge dorato `★` e distanza dalla base più vicina. Un impianto senza prezzo comunicato resta visibile come `n.d.`.
+- **Tab** `Base Roccalumera (ME)`, `Base Alessandria` (perimetro di 10 km) e il tab dinamico `Risultati Spot Live (N)`.
+- **Radar Spot Live**: ricerca per ID impianto o città, oppure `Punta Radar sulla Mappa` e click su un punto qualsiasi per disegnare il cerchio di 10 km e interrogare il Ministero in tempo reale. I risultati spot sono temporanei (badge `SPOT LIVE`, pill ambra sulla mappa) e non sostituiscono i 10 POI monitorati; `Chiudi Spot` li rimuove.
+- **Fasce di prezzo** calcolate rispetto al minimo del dataset in vista: `cheap` (≤ +0,05 €), `mid` (≤ +0,15 €), `expensive` (oltre).
+- **Click sulla riga** → `map.flyTo` sull'impianto e apertura del popup del marker.
+- **Click sul marker** → selezione della riga corrispondente nella sidebar.
+- **Filtri** (base + ricerca testuale su arteria, gestore, comune) ricalcolano sia la lista sia i marker, con `fitBounds` automatico sull'insieme filtrato.
 
 ---
 
@@ -102,6 +141,14 @@ python build_dataset.py
 
 Al termine lo script stampa il numero di impianti con prezzo Self attivo, il percorso del file generato e i 3 distributori più economici rilevati.
 
+Per la dashboard di flotta (la vista attiva) si usa invece l'engine live, che non richiede il passaggio precedente:
+
+```bash
+cd etl
+.\.venv\Scripts\Activate.ps1      # oppure: source .venv/bin/activate
+python sync_fleet.py
+```
+
 ### 2. Avviare la web app in sviluppo
 
 ```bash
@@ -110,7 +157,7 @@ npm install
 npm run dev
 ```
 
-Vite espone il server locale (di norma `http://localhost:5173`). Se il JSON non è presente, la dashboard si carica comunque ma mostra "Nessun distributore trovato": eseguire prima l'ETL.
+Vite espone il server locale (di norma `http://localhost:5173`) e attiva il reverse proxy `/api/mimit` usato dal Radar Spot Live. Se `fleet_data.json` non è presente, la dashboard si carica comunque ma segnala "Dataset di flotta non disponibile": eseguire prima `etl/sync_fleet.py`.
 
 ### 3. Compilare per la produzione
 

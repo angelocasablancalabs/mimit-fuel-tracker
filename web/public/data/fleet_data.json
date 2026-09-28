@@ -13,6 +13,7 @@
     "distanza_km": 8.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -31,6 +32,7 @@
     "distanza_km": 0.5,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -49,6 +51,7 @@
     "distanza_km": 4.1,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": true,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -67,6 +70,7 @@
     "distanza_km": 5.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -85,6 +89,7 @@
     "distanza_km": 6.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -103,6 +108,7 @@
     "distanza_km": 6.6,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -121,6 +127,7 @@
     "distanza_km": 7.4,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -139,6 +146,7 @@
     "distanza_km": 8.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -157,6 +165,7 @@
     "distanza_km": 9.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -175,6 +184,7 @@
     "distanza_km": 9.4,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -193,6 +203,7 @@
     "distanza_km": 9.4,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -211,6 +222,7 @@
     "distanza_km": 9.9,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -229,6 +241,7 @@
     "distanza_km": 9.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -247,6 +260,7 @@
     "distanza_km": 0.1,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -265,6 +279,7 @@
     "distanza_km": 7.8,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -283,6 +298,7 @@
     "distanza_km": 2.5,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -301,6 +317,7 @@
     "distanza_km": 7.5,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -319,6 +336,7 @@
     "distanza_km": 5.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -337,6 +355,7 @@
     "distanza_km": 8.1,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -355,6 +374,7 @@
     "distanza_km": 6.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -373,6 +393,7 @@
     "distanza_km": 4.7,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -391,6 +412,7 @@
     "distanza_km": 1.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": true,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -409,6 +431,7 @@
     "distanza_km": 2.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -427,6 +450,7 @@
     "distanza_km": 3.8,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -445,6 +469,7 @@
     "distanza_km": 6.5,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -463,6 +488,7 @@
     "distanza_km": 9.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -481,6 +507,7 @@
     "distanza_km": 9.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -499,6 +526,7 @@
     "distanza_km": 7.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -517,6 +545,26 @@
     "distanza_km": 3.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": false,
+    "poi_id": "base_alessandria",
+    "poi_nome": "Base Alessandria",
+    "note": ""
+  },
+  {
+    "id": 46486,
+    "nome": "KEROPETROL SPA SPINETTA MARENGO",
+    "gestore": "KEROPETROL",
+    "indirizzo": "VIA S.S.10 KM.100+526 S.N. 15121, ALESSANDRIA (AL) SNC 15122",
+    "comune": "ALESSANDRIA",
+    "provincia": "AL",
+    "lat": 44.889685,
+    "lon": 8.687511,
+    "prezzo_gasolio": 2.379,
+    "data_comunicazione": "2026-09-28T16:12:28+02:00",
+    "distanza_km": 3.3,
+    "tipo_impianto": "Stradale",
+    "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -535,6 +583,7 @@
     "distanza_km": 5.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": true,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -553,6 +602,7 @@
     "distanza_km": 7.9,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -571,6 +621,7 @@
     "distanza_km": 9.1,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -589,6 +640,7 @@
     "distanza_km": 9.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -607,6 +659,7 @@
     "distanza_km": 9.9,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -625,6 +678,7 @@
     "distanza_km": 8.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -643,6 +697,7 @@
     "distanza_km": 10.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -661,24 +716,7 @@
     "distanza_km": 10.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
-    "poi_id": "base_alessandria",
-    "poi_nome": "Base Alessandria",
-    "note": ""
-  },
-  {
-    "id": 46486,
-    "nome": "KEROPETROL SPA SPINETTA MARENGO",
-    "gestore": "KEROPETROL",
-    "indirizzo": "VIA S.S.10 KM.100+526 S.N. 15121, ALESSANDRIA (AL) SNC 15122",
-    "comune": "ALESSANDRIA",
-    "provincia": "AL",
-    "lat": 44.889685,
-    "lon": 8.687511,
-    "prezzo_gasolio": 2.39,
-    "data_comunicazione": "2026-09-28T16:12:28+02:00",
-    "distanza_km": 3.3,
-    "tipo_impianto": "Stradale",
-    "is_arteria_principale": true,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -697,6 +735,7 @@
     "distanza_km": 0.5,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -715,6 +754,7 @@
     "distanza_km": 6.2,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -733,6 +773,7 @@
     "distanza_km": 8.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -751,6 +792,7 @@
     "distanza_km": 5.3,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -769,6 +811,7 @@
     "distanza_km": 3.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -787,6 +830,7 @@
     "distanza_km": 3.8,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": true,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -805,6 +849,7 @@
     "distanza_km": 6.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""
@@ -823,6 +868,7 @@
     "distanza_km": 10.0,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -841,8 +887,28 @@
     "distanza_km": 1.7,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
+    "note": ""
+  },
+  {
+    "id": 3986,
+    "nome": "TREMESTRIERI EST",
+    "gestore": "Esso",
+    "indirizzo": "Autostrada A18 MESSINA-CATANIA, Km. 0, dir. nord - 98128",
+    "comune": "MESSINA",
+    "provincia": "ME",
+    "lat": 38.13375,
+    "lon": 15.521858,
+    "prezzo_gasolio": 2.439,
+    "data_comunicazione": "2026-09-27T18:59:20+02:00",
+    "distanza_km": 0.0,
+    "tipo_impianto": "Autostradale",
+    "is_arteria_principale": true,
+    "is_target_monitored": true,
+    "poi_id": "monitor_sweep",
+    "poi_nome": "Presidio impianti monitorati",
     "note": ""
   },
   {
@@ -859,6 +925,7 @@
     "distanza_km": 7.4,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -877,6 +944,7 @@
     "distanza_km": 7.8,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -895,6 +963,7 @@
     "distanza_km": 7.1,
     "tipo_impianto": "Stradale",
     "is_arteria_principale": false,
+    "is_target_monitored": false,
     "poi_id": "base_alessandria",
     "poi_nome": "Base Alessandria",
     "note": ""
@@ -913,6 +982,7 @@
     "distanza_km": 4.1,
     "tipo_impianto": "Autostradale",
     "is_arteria_principale": true,
+    "is_target_monitored": true,
     "poi_id": "base_roccalumera",
     "poi_nome": "Base Roccalumera (ME)",
     "note": ""

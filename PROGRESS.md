@@ -2,8 +2,8 @@
 
 Registro di bordo del progetto **Gasolio Radar (MIMIT Fuel Tracker)**. Ogni sessione di lavoro significativa aggiorna questo file.
 
-- **Ultimo aggiornamento:** Sprint 2 — Frontend Minimal Istituzionale Mezzi Pesanti (completato).
-- **Stato complessivo:** 🟢 operativo — pipeline dati e dashboard di flotta funzionanti end-to-end: il frontend consuma `fleet_data.json` (Sprint 1) e la configurazione POI, build e lint puliti (0 warning, 0 errori) e 36/36 asserzioni end-to-end superate su Chrome headless.
+- **Ultimo aggiornamento:** Sprint 3 — Impianti Target Monitorati & Radar Spot Live (completato).
+- **Stato complessivo:** 🟢 operativo — la dashboard presidia stabilmente i **10 Impianti POI Fissi Specifici** (`config/pois.json` → `monitored_stations`) e offre il **Radar Spot Live**: interrogazione del Ministero in tempo reale dal browser attraverso il reverse proxy Vite `/api/mimit`, per ID impianto, per città o per punto scelto sulla mappa. Build e lint puliti (0 warning, 0 errori) e **31/31 asserzioni end-to-end** superate su Chrome headless.
 
 ---
 
@@ -180,16 +180,114 @@ Obiettivo: ridisegnare la Web App React come **Dashboard Logistica "Minimal Isti
 
 ---
 
+## 3.7 Sprint 3 — Impianti Target Monitorati & Radar Spot Live (Completata)
+
+Obiettivo: presidiare stabilmente i **10 Impianti POI Fissi Specifici** concordati con l'ufficio e dotare l'applicazione di un **Radar Spot Live** capace di interrogare il Ministero in tempo reale dal browser (per ID, per città o per un punto scelto sulla mappa).
+
+### File toccati
+
+| File | Intervento |
+| --- | --- |
+| `config/pois.json` | Ristrutturato a **doppio livello**: `bases` (2 basi operative) + `monitored_stations` (10 impianti POI fissi con `id`, `nome_convenzionale`, `provincia`). |
+| `web/vite.config.js` | Aggiunto il **reverse proxy** `/api/mimit` → `https://carburanti.mise.gov.it` con riscrittura dei prefisso e header mimetici (Origin, Referer, User-Agent Chrome), `changeOrigin: true`; stessa configurazione su `preview`. |
+| `etl/sync_fleet.py` | Allineato al nuovo formato, con presidio dei 10 target, campo `is_target_monitored` e generazione dell'indice città. |
+| `web/src/App.jsx` | Selettore tab (monitorati + basi + tab dinamico spot), vista dei 10 POI con distanza dalla base più vicina, strumenti Radar Spot Live, layer mappa dedicati. |
+| `web/src/App.css` | Stili del radar (ambra), badge dorati degli impianti monitorati, colonna ID, marker spot, legenda estesa. |
+| `web/public/data/city_index.json` | **Nuovo artefatto**: indice città → coordinate per la ricerca spot per zona (generato dall'ETL). |
+| `PROGRESS.md` | Questo registro. |
+
+### 1. `config/pois.json` a doppio livello
+
+```json
+{
+  "bases": [ { "id": "base_roccalumera", "nome": "…", "provincia": "ME", "lat": …, "lng": …, "radius": 10 }, … ],
+  "monitored_stations": [ { "id": 4835, "nome_convenzionale": "ESSO S.Teresa", "provincia": "ME" }, … ]
+}
+```
+
+- [x] Le 10 stazioni target: ME — 4835 (ESSO S.Teresa), 6777 (Q8 S.Teresa), 49329 (ENI Roccalumera), 49686 (ENI S.Alessio), 44838 (Q8 A18 S.Teresa), 9527 (Bianca Roccalumera), 3986 (ESSO Tremestieri); AL — 51468 (ENI Spinetta Marengo), 63217 (Q8 Castelceriolo), 29129 (ESSO Alessandria).
+- [x] Le coordinate delle basi restano invariate (Roccalumera `37.968616, 15.382088`; Alessandria `44.913661, 8.711490`) e validate dal bounding box Italia.
+- [x] La `provincia` di un impianto monitorato determina automaticamente la sua **base di riferimento** (`ME` → Roccalumera, `AL` → Alessandria): nessuna mappa duplicata da tenere allineata.
+- [x] Il carico di configurazione resta retro-compatibile con un file a lista piatta.
+
+### 2. Reverse proxy Vite (`web/vite.config.js`)
+
+- [x] Rotta `/api/mimit` → `https://carburanti.mise.gov.it`, con `rewrite` che rimuove il prefisso: `/api/mimit/ospzApi/search/zone` → `/ospzApi/search/zone`.
+- [x] `changeOrigin: true` e header obbligatori riscritti dal proxy: `Origin: https://carburanti.mise.gov.it`, `Referer: https://carburanti.mise.gov.it/ospzSearch/zona`, `User-Agent` di Chrome moderno. Il browser non vede mai una richiesta cross-origin: **nessun blocco CORS**.
+- [x] Proxy replicato in `preview`, così il bundle di produzione è verificabile senza dev server.
+- [x] Verificato con `curl` sia in dev (`:5199`) sia in preview (`:4180`): **HTTP 200** e 14 risultati live sull'area di Roccalumera.
+- [x] Nota di sicurezza: il proxy è una funzione di **sviluppo/anteprima** locale (`vite dev`/`vite preview`). Un deploy statico (`dist/`) non espone `/api/mimit`: in quel contesto serve un reverse proxy lato hosting (cfr. Task 4).
+
+### 3. Engine ETL allineato (`etl/sync_fleet.py`)
+
+- [x] **(A)** Lettura di `bases` + `monitored_stations` + overrides; clamp del raggio a 1–10 km e scarto dei POI fuori dal bounding box Italia (invariati).
+- [x] **(B)** L'anagrafica MIMIT ora mappa anche `Latitudine`/`Longitudine`: servono ai segnaposto e all'indice città.
+- [x] **(C)** Polling live per base (`POST /ospzApi/search/zone`) come nello Sprint 1.
+- [x] **(C2) Presidio degli impianti monitorati:** i 10 target non stanno tutti nei raggi delle basi (S.Teresa dista ~4 km ma Tremestieri ~22 km, S.Alessio ~5 km). Chi non viene intercettato dal polling delle basi viene interrogato attorno alle **proprie** coordinate e attribuito al perimetro `monitor_sweep` ("Presidio impianti monitorati"), così non entra nei tab delle basi ma è sempre presente nella vista monitorati. Disattivabile con `--no-monitor-sweep`.
+- [x] **(F)** Deduplicazione invariata: un impianto visto da più basi resta una volta sola, sulla base più vicina.
+- [x] **(G)** `fleet_data.json` con il nuovo campo **`is_target_monitored`** su ogni record (`true` se l'ID appartiene a `monitored_stations`). I campi dello Sprint 1 restano invariati: il contratto JSON non è rotto.
+- [x] **Segnaposto di presidio:** se un target non ha Gasolio Self comunicato o non è intercettato, viene comunque emesso un record con `prezzo_gasolio: null`, coordinate e anagrafica MIMIT e `senza_prezzo_live: true`: la vista mostra tutti e 10 gli impianti, mai 9 in silenzio. L'ordinamento mette i record senza prezzo in coda.
+- [x] **Indice città** (`web/public/data/city_index.json`): città → `{provincia, lat, lon}` estratto dagli impianti visti dall'engine (scelta deterministica: primo ID per coppia città/provincia). È la sorgente della ricerca spot per città, senza dipendere da servizi di geocoding esterni.
+- [x] Sintesi a terminale estesa con il blocco **IMPIANTI MONITORATI (10)**: prezzo, distanza e comune di ciascun target, con marcatori `[NO PREZZO]` e `[MANCANTE]`.
+- [x] Nuovo flag CLI `--solo-base` (alias di `--solo-poi`) e `--no-monitor-sweep`.
+
+### 4. Frontend — tab e vista dei 10 impianti monitorati
+
+- [x] **Vista di default: `Impianti Monitorati (10)`** — i dieci POI fissi aziendali, sempre tutti presenti (anche con prezzo `n.d.`), con badge dorato `★`, ID impianto in colonna dedicata e **distanza dalla base più vicina** (formula dell'emisenoverso lato client, così il perimetro di presidio non falsa la distanza).
+- [x] Tab `Base Roccalumera (ME)` e `Base Alessandria`: perimetro dei 10 km come nello Sprint 2, con ricerca testuale e filtro mezzi pesanti (default attivo) invariati.
+- [x] **Tab dinamico `Risultati Spot Live (N)`**: compare solo quando esiste uno spot attivo (ricerca in corso, errore o risultati) e si rimuove alla chiusura.
+- [x] Layout a due pannelli e interazione bidirezionale riga ↔ marker preservati (mappa sempre visibile, nessuna route).
+
+### 5. Frontend — Radar Spot Live
+
+- [x] **Barra strumenti** in testa ai controlli: input `Verifica ID Impianto o Zona (es. 4835 o Messina)`, pulsante `Cerca`, pulsante `Punta Radar sulla Mappa` (icona `Crosshair` di lucide-react) e pulsante rapido `Chiudi Spot`.
+- [x] **Modalità per ID:** un input numerico viene risolto sul dataset locale (o sull'indice) per ricavarne le coordinate, poi il Ministero viene interrogato **in tempo reale** sull'area di quell'impianto e il risultato è filtrato sull'ID richiesto. Un ID inesistente produce un messaggio esplicito, non un errore silenzioso.
+- [x] **Modalità per città:** l'input testuale è risolto sull'indice `city_index.json` (normalizzazione senza accenti né punteggiatura) e l'area della città viene interrogata live.
+- [x] **Modalità per coordinate (mappa):** con il radar armato il cursore della mappa diventa un **mirino** e un click posiziona il marker `Centro Radar`, disegna il **cerchio tratteggiato di 10 km** e chiama immediatamente `/api/mimit/ospzApi/search/zone` tramite il proxy. Il radar si disarma da solo dopo il click.
+- [x] **Risultati spot separati dai 10 POI:** tabella con badge `SPOT LIVE` e pill ambra `SPOT € …` sulla mappa; i target monitorati restano riconoscibili dal **bordo dorato**. Nessuna sovrascrittura del dataset presidiato.
+- [x] `Chiudi Spot` rimuove cerchio, centro radar, marker e risultati, e riporta alla vista monitorati. Le richieste in corso sono annullate (`AbortController`), quindi lo spot precedente non può sovrascrivere quello nuovo.
+- [x] Ricchezza dei risultati: gli impianti noti nel dataset vengono arricchiti con indirizzo e comune; la mappa inquadra automaticamente l'area dello spot (una sola volta per interrogazione, senza forzare lo zoom scelto dall'utente).
+- [x] I valori provenienti dall'API sono passati per un escape HTML prima di finire nei popup Leaflet.
+
+### Verifiche eseguite (2026-09-28)
+
+- [x] `python etl/sync_fleet.py`: **exit 0**, HTTP 200 su entrambe le basi, **52 distributori live** (14 Roccalumera + 37 Alessandria + 1 presidio Tremestieri), **10/10 impianti monitorati con prezzo live**, 13 idonei ai mezzi pesanti, 0 segnaposto senza prezzo.
+- [x] `cd web && npm run build`: **0 errori, 0 warning** (1888 moduli, CSS 33,7 KB, JS 405,1 KB / 123,2 KB gzip).
+- [x] `cd web && npm run lint` (Oxlint): **0 errori, 0 warning**.
+- [x] Proxy verificato con `curl` in dev e in preview: `/api/mimit/ospzApi/search/zone` → **HTTP 200** con risultati reali dal Ministero.
+- [x] Test end-to-end su Chrome headless + DevTools Protocol contro il bundle di produzione: **31/31 asserzioni superate**. Coperti: vista di default con 10 righe e 10 marker dorati; ID attesi; distanze valorizzate; tab base funzionanti; ricerca per ID (`Risultati Spot Live (1)`, badge SPOT LIVE, 1 marker ambra); ricerca per città (`Messina` → 38 risultati, marker coerenti); radar armato (cursore `crosshair`, avviso a schermo); click sulla mappa (centro radar + cerchio tratteggiato `7 7` + 41 risultati, marker totali 44 = 2 basi + centro + 41 spot); `Chiudi Spot` (cerchio e marker rimossi, ritorno ai 10 POI); **console del browser pulita**.
+- [x] Ispezione visiva con screenshot headless: vista monitorati, base Roccalumera, spot per ID, spot per città, radar su mappa, stato dopo la chiusura.
+- [ ] ⚠️ `npm run dev` è stato interrotto una volta da un `EBUSY` del file watcher di Vite su un file temporaneo dell'editor (Windows). Non è un difetto dell'applicazione (l'HMR aveva già applicato le modifiche e la build di produzione è pulita): si manifesta solo se un editor scrive in `web/src` mentre il dev server è attivo.
+
+### Conteggi sul run live (2026-09-28)
+
+| Impianto target | Prezzo Self | Distanza base | Base |
+| --- | --- | --- | --- |
+| 49329 ENI Roccalumera | 2,190 € | 0,5 km | Roccalumera (ME) |
+| 51468 ENI Spinetta Marengo | 2,190 € | 4,1 km | Alessandria (AL) |
+| 49686 ENI S.Alessio | 2,190 € | 5,2 km | Roccalumera (ME) |
+| 9527 Bianca Roccalumera | 2,299 € | 0,1 km | Roccalumera (ME) |
+| 63217 Q8 Castelceriolo | 2,359 € | 1,0 km | Alessandria (AL) |
+| 29129 ESSO Alessandria | 2,379 € | 5,0 km | Alessandria (AL) |
+| 6777 Q8 S.Teresa | 2,419 € | 3,8 km | Roccalumera (ME) |
+| 4835 ESSO S.Teresa | 2,426 € | 1,7 km | Roccalumera (ME) |
+| 3986 ESSO Tremestieri | 2,439 € | 22,1 km | presidio (fuori raggio) |
+| 44838 Q8 A18 S.Teresa | 2,469 € | 4,1 km | Roccalumera (ME) |
+
+> Nota di design: 9 dei 10 target stanno entro 5,2 km da una base, ma **Tremestieri (3986)** dista 22,1 km da Roccalumera perché è un impianto autostradale sull'A18 in direzione Messina. Da qui la scelta del **presidio per coordinate**: senza di esso il target sarebbe comparso solo come segnaposto `n.d.`, cioè proprio l'impianto con il prezzo più alto del gruppo sarebbe stato l'unico non monitorato.
+
+---
+
 ## 4. Roadmap / Backlog Prossimi Task
 
 ### Task 2 — Calcolatore Risparmio Flotta
 Box dinamico con stima del risparmio in Euro per rifornimento (serbatoio mezzo pesante 400–600 L, configurabile) rispetto alla media delle arterie del perimetro filtrato. Quantifica in modo immediato la convenienza di uno spostamento verso la base o l'impianto più economico.
 
 ### Task 3 — Clustering Marker / Ottimizzazione Mappa
-Gestione avanzata dei pin sovrapposti nelle viste grandangolari (evidente nella vista "Tutte le Basi", dove 12 pill di prezzo si accavallano sul nodo di Alessandria), per mantenere la mappa leggibile quando i risultati filtrati sono numerosi.
+Gestione avanzata dei pin sovrapposti nelle viste grandangolari. Evidente sia nella vista "Tutte le Basi" (12 pill di prezzo sul nodo di Alessandria) sia nei **risultati spot per città** (38 risultati su Messina producono una catena di pill ambra lungo la costa, cfr. §3.7): serve mantenere la mappa leggibile quando i risultati filtrati sono numerosi.
 
 ### Task 4 — CI/CD GitHub Actions
-Workflow schedulato ogni mattina alle **08:30** per l'esecuzione automatica dell'ETL e il deploy su GitHub Pages o Cloudflare Pages. Da progettare con attenzione alla persistenza del JSON aggiornato e al rispetto del `.gitignore` sui CSV grezzi. Candidato naturale per ospitare anche l'harness headless di verifica dello Sprint 2 (build + lint + asserzioni end-to-end).
+Workflow schedulato ogni mattina alle **08:30** per l'esecuzione automatica dell'ETL e il deploy su GitHub Pages o Cloudflare Pages. Da progettare con attenzione alla persistenza del JSON aggiornato e al rispetto del `.gitignore` sui CSV grezzi. Candidato naturale per ospitare anche l'harness headless di verifica (**36 asserzioni dello Sprint 2 + 31 dello Sprint 3**). Deve includere il **reverse proxy lato hosting per `/api/mimit`**, oggi disponibile solo in `vite dev`/`vite preview`: senza di esso il Radar Spot Live non funziona sul sito pubblicato.
 
 ### Task 5 — Decisione sul dataset batch `gasolio_focus.json`
 La vista di flotta non consuma più `web/public/data/gasolio_focus.json`, che `etl/build_dataset.py` continua a produrre. Da decidere se (a) mantenere la pipeline batch come vista "ufficio auto" separata, (b) ritirarla, oppure (c) fonderla nel dataset di flotta. Da chiudere prima di toccare `etl/build_dataset.py`.
@@ -198,8 +296,10 @@ La vista di flotta non consuma più `web/public/data/gasolio_focus.json`, che `e
 
 ## 5. Debito Tecnico Noto
 
-Nessun debito bloccante. Build e lint sono puliti (0 warning, 0 errori) dopo lo Sprint 2.
+Nessun debito bloccante. Build e lint sono puliti (0 warning, 0 errori) dopo lo Sprint 3.
 
+- **Proxy `dev`-only:** la rotta `/api/mimit` è configurata in `web/vite.config.js` e quindi attiva solo con `npm run dev` / `npm run preview`. Un deploy statico del bundle non espone il reverse proxy: il Radar Spot Live richiede un proxy equivalente lato hosting (Cloudflare Worker / Netlify redirect). Da chiudere insieme al Task 4.
+- **Risultati spot senza anagrafica completa:** l'API per zona non restituisce `address` (sempre `null`). Gli impianti già noti al dataset vengono arricchiti con indirizzo e comune; per gli altri la vista mostra `Anagrafica non disponibile`. Valutare un indice anagrafico leggero lato browser se il dato diventerà necessario.
 - **Dataset batch orfano:** `gasolio_focus.json` non è più letto dal frontend mentre `etl/build_dataset.py` continua a produrlo (Task 5). Nessuna rottura, ma è una pipeline da riconfermare o ritirare.
 - **Harness di verifica non versionato:** lo script headless (Chrome + DevTools Protocol) usato per le 36 asserzioni dello Sprint 2 vive in `%TEMP%`; va portato in CI nel Task 4 per diventare una rete di sicurezza permanente.
 - **Falsi negativi sulle arterie:** restano le strade citate solo per nome (es. "Orientale Sicula", "Consolare Valeria") non riconosciute dalla regex di `etl/sync_fleet.py` (eredità Sprint 1, nessuna azione richiesta finché non emerge dai dati).
@@ -208,6 +308,12 @@ Nessun debito bloccante. Build e lint sono puliti (0 warning, 0 errori) dopo lo 
 ---
 
 ## 6. Note Sessione Corrente
+
+### Sessione 2026-09-28 — Sprint 3: Impianti Target Monitorati & Radar Spot Live
+- **Obiettivo:** presidiare stabilmente i 10 Impianti POI Fissi Specifici e interrogare il Ministero in tempo reale dal browser.
+- **Modifiche:** `config/pois.json` a doppio livello (`bases` + `monitored_stations`); reverse proxy `/api/mimit` in `web/vite.config.js` con header mimetici e riscrittura del prefisso; `etl/sync_fleet.py` allineato con presidio dei target (`--no-monitor-sweep` per disattivarlo), campo `is_target_monitored`, segnaposto senza prezzo e nuovo indice `web/public/data/city_index.json`; `web/src/App.jsx` con vista di default a 10 impianti, tab dinamico dei risultati spot e Radar Spot Live (per ID, per città, per punto sulla mappa); `web/src/App.css` con il linguaggio ambra del radar e i badge dorati dei POI fissi.
+- **Verifiche eseguite:** `sync_fleet.py` (exit 0, 52 record live, 10/10 target con prezzo), `npm run build` (0 errori/0 warning), `npm run lint` (0 errori/0 warning), proxy verificato con `curl` in dev e preview (HTTP 200 dal Ministero), 31/31 asserzioni end-to-end su Chrome headless + DevTools Protocol, console browser pulita, ispezione visiva con screenshot.
+- **Pendenze aperte:** il proxy `/api/mimit` esiste solo in `vite dev`/`vite preview`: per il deploy statico serve un reverse proxy lato hosting (Task 4). Restano aperti il clustering dei marker nella vista spot con molti risultati (Task 3) e la decisione su `gasolio_focus.json` (Task 5).
 
 ### Sessione 2026-09-28 — Sprint 2: Frontend Minimal Istituzionale Mezzi Pesanti
 - **Obiettivo:** trasformare la Web App React in una dashboard logistica "Minimal Istituzionale" per flotte di mezzi pesanti, alimentata da `web/public/data/fleet_data.json` e dalle basi aziendali di `config/pois.json`.

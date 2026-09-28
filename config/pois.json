@@ -1,18 +1,32 @@
-[
-  {
-    "id": "base_roccalumera",
-    "nome": "Base Roccalumera (ME)",
-    "provincia": "ME",
-    "lat": 37.968616,
-    "lng": 15.382088,
-    "radius": 10
-  },
-  {
-    "id": "base_alessandria",
-    "nome": "Base Alessandria",
-    "provincia": "AL",
-    "lat": 44.913661,
-    "lng": 8.711490,
-    "radius": 10
-  }
-]
+{
+  "bases": [
+    {
+      "id": "base_roccalumera",
+      "nome": "Base Roccalumera (ME)",
+      "provincia": "ME",
+      "lat": 37.968616,
+      "lng": 15.382088,
+      "radius": 10
+    },
+    {
+      "id": "base_alessandria",
+      "nome": "Base Alessandria",
+      "provincia": "AL",
+      "lat": 44.913661,
+      "lng": 8.711490,
+      "radius": 10
+    }
+  ],
+  "monitored_stations": [
+    { "id": 4835, "nome_convenzionale": "ESSO S.Teresa", "provincia": "ME" },
+    { "id": 6777, "nome_convenzionale": "Q8 S.Teresa", "provincia": "ME" },
+    { "id": 49329, "nome_convenzionale": "ENI Roccalumera", "provincia": "ME" },
+    { "id": 49686, "nome_convenzionale": "ENI S.Alessio", "provincia": "ME" },
+    { "id": 44838, "nome_convenzionale": "Q8 A18 S.Teresa", "provincia": "ME" },
+    { "id": 9527, "nome_convenzionale": "Bianca Roccalumera", "provincia": "ME" },
+    { "id": 3986, "nome_convenzionale": "ESSO Tremestieri", "provincia": "ME" },
+    { "id": 51468, "nome_convenzionale": "ENI Spinetta Marengo", "provincia": "AL" },
+    { "id": 63217, "nome_convenzionale": "Q8 Castelceriolo", "provincia": "AL" },
+    { "id": 29129, "nome_convenzionale": "ESSO Alessandria", "provincia": "AL" }
+  ]
+}

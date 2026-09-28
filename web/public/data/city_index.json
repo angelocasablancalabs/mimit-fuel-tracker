@@ -1,0 +1,160 @@
+{
+  "generato_il": "2026-09-28T19:21:40",
+  "nota": "Coordinate di riferimento per citta', estratte dagli impianti visti dall'engine: il Radar Spot Live le usa per interrogare /ospzApi/search/zone.",
+  "citta": [
+    {
+      "nome": "al",
+      "nome_leggibile": "Al",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 38.0269,
+          "lon": 15.4171
+        }
+      ]
+    },
+    {
+      "nome": "al terme",
+      "nome_leggibile": "Al Terme",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 38.003718,
+          "lon": 15.422504
+        }
+      ]
+    },
+    {
+      "nome": "alessandria",
+      "nome_leggibile": "Alessandria",
+      "province": [
+        {
+          "provincia": "AL",
+          "lat": 44.919933,
+          "lon": 8.595037
+        }
+      ]
+    },
+    {
+      "nome": "bosco marengo",
+      "nome_leggibile": "Bosco Marengo",
+      "province": [
+        {
+          "provincia": "AL",
+          "lat": 44.834718,
+          "lon": 8.737301
+        }
+      ]
+    },
+    {
+      "nome": "fiumedinisi",
+      "nome_leggibile": "Fiumedinisi",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 38.022127,
+          "lon": 15.38279
+        }
+      ]
+    },
+    {
+      "nome": "forza d agr",
+      "nome_leggibile": "Forza D Agr",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.940236,
+          "lon": 15.30499
+        }
+      ]
+    },
+    {
+      "nome": "furci siculo",
+      "nome_leggibile": "Furci Siculo",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.964713,
+          "lon": 15.384608
+        }
+      ]
+    },
+    {
+      "nome": "messina",
+      "nome_leggibile": "Messina",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 38.13375,
+          "lon": 15.521858
+        }
+      ]
+    },
+    {
+      "nome": "nizza di sicilia",
+      "nome_leggibile": "Nizza Di Sicilia",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.987721,
+          "lon": 15.40652
+        }
+      ]
+    },
+    {
+      "nome": "pagliara",
+      "nome_leggibile": "Pagliara",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.98454,
+          "lon": 15.361872
+        }
+      ]
+    },
+    {
+      "nome": "pecetto di valenza",
+      "nome_leggibile": "Pecetto Di Valenza",
+      "province": [
+        {
+          "provincia": "AL",
+          "lat": 44.99988,
+          "lon": 8.677574
+        }
+      ]
+    },
+    {
+      "nome": "roccalumera",
+      "nome_leggibile": "Roccalumera",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.969369,
+          "lon": 15.382824
+        }
+      ]
+    },
+    {
+      "nome": "sant alessio siculo",
+      "nome_leggibile": "Sant Alessio Siculo",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.931091,
+          "lon": 15.344323
+        }
+      ]
+    },
+    {
+      "nome": "santa teresa di riva",
+      "nome_leggibile": "Santa Teresa Di Riva",
+      "province": [
+        {
+          "provincia": "ME",
+          "lat": 37.954609,
+          "lon": 15.375569
+        }
+      ]
+    }
+  ]
+}

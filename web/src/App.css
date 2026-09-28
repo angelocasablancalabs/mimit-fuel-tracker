@@ -274,6 +274,219 @@ body {
   color: #eff6ff;
 }
 
+/* --------------------------------------------------------------------------
+   RADAR SPOT LIVE (Sprint 3) — ricerca immediata e puntamento sulla mappa
+   -------------------------------------------------------------------------- */
+.spot-radar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 8px 9px;
+  border: 1px solid #3b2f16;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.09) 0%, rgba(251, 191, 36, 0.02) 100%);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.spot-radar.armed {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.18);
+}
+
+.spot-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.spot-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1 1 210px;
+  min-width: 190px;
+}
+
+.spot-search-icon {
+  position: absolute;
+  left: 9px;
+  color: var(--amber);
+  pointer-events: none;
+}
+
+.spot-input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 8px 7px 29px;
+  background: var(--bg-base);
+  border: 1px solid #3b2f16;
+  border-radius: 5px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.spot-input::placeholder {
+  color: #6b5a2f;
+}
+
+.spot-input:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.15);
+}
+
+.spot-submit {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 7px 10px;
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  border-radius: 5px;
+  background: rgba(251, 191, 36, 0.16);
+  color: var(--amber);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.spot-submit:hover:not(:disabled) {
+  background: rgba(251, 191, 36, 0.3);
+  color: #fffbeb;
+}
+
+.spot-submit:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+/* Pulsante "Punta Radar sulla Mappa" */
+.radar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid #3b2f16;
+  border-radius: 5px;
+  background: var(--bg-base);
+  color: #d6b877;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.radar-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.radar-btn.active {
+  background: rgba(251, 191, 36, 0.22);
+  border-color: var(--amber);
+  color: #fffbeb;
+}
+
+.radar-btn-icon {
+  flex-shrink: 0;
+}
+
+/* Pulsante rapido "Chiudi Spot" */
+.spot-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 9px;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  border-radius: 5px;
+  background: rgba(248, 113, 113, 0.12);
+  color: var(--red);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.spot-close:hover {
+  background: rgba(248, 113, 113, 0.24);
+}
+
+/* Barra di stato dello spot: fase, esito o errore */
+.spot-status {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.spot-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: #a1885a;
+}
+
+.spot-hint.live {
+  color: var(--amber);
+}
+
+.spot-hint.error {
+  color: var(--red);
+}
+
+.spot-spin {
+  animation: spot-rotate 1.1s linear infinite;
+}
+
+@keyframes spot-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spot-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px dashed rgba(251, 191, 36, 0.4);
+  border-radius: 5px;
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.spot-toolbar-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: #d6b877;
+}
+
+/* Tab dinamico dei risultati spot */
+.tab-btn.tab-spot {
+  flex: 0 0 auto;
+  color: var(--amber);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.tab-btn.tab-spot.active {
+  background: rgba(251, 191, 36, 0.22);
+  border-color: var(--amber);
+  color: #fffbeb;
+}
+
 .search-box {
   position: relative;
   display: flex;
@@ -431,10 +644,11 @@ body {
   white-space: nowrap;
 }
 
-.fleet-table .col-route { width: 68px; }
-.fleet-table .col-dist { width: 64px; text-align: right; }
-.fleet-table .col-price { width: 92px; text-align: right; }
-.fleet-table .col-time { width: 76px; text-align: right; }
+.fleet-table .col-route { width: 92px; }
+.fleet-table .col-id { width: 58px; }
+.fleet-table .col-dist { width: 62px; text-align: right; }
+.fleet-table .col-price { width: 88px; text-align: right; }
+.fleet-table .col-time { width: 74px; text-align: right; }
 
 .fleet-row {
   cursor: pointer;
@@ -467,6 +681,61 @@ body {
 .fleet-row:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: -1px;
+}
+
+/* I 10 impianti POI FISSI monitorati: barra dorata di riconoscimento aziendale */
+.fleet-row.is-target td:first-child {
+  box-shadow: inset 3px 0 0 0 var(--amber);
+}
+
+.fleet-row.is-target.selected td:first-child {
+  box-shadow: inset 3px 0 0 0 var(--accent);
+}
+
+/* Risultati temporanei del Radar Spot Live */
+.fleet-row.is-spot td:first-child {
+  box-shadow: inset 3px 0 0 0 var(--amber);
+}
+
+.fleet-row.is-spot.selected td:first-child {
+  box-shadow: inset 3px 0 0 0 var(--accent);
+}
+
+.fleet-row.is-spot.selected {
+  background: rgba(251, 191, 36, 0.12);
+}
+
+/* Colonna ID impianto: monospazio, allineata a destra per confronto rapido */
+.cell-id {
+  padding-left: 4px !important;
+  padding-right: 9px !important;
+  font-size: 9.5px;
+  color: var(--text-faint);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Badge SPOT LIVE sulle righe temporanee */
+.spot-badge {
+  display: block;
+  margin-top: 3px;
+  padding: 0 3px;
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  border-radius: 2px;
+  background: rgba(251, 191, 36, 0.14);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* Stella dorata degli impianti target nella colonna brand */
+.target-star {
+  margin-right: 4px;
+  color: var(--amber);
+  font-size: 10px;
 }
 
 /* Badge STATO / TIPO */
@@ -543,6 +812,12 @@ body {
 .cell-price.tier-cheap { color: var(--green); }
 .cell-price.tier-mid { color: var(--amber); }
 .cell-price.tier-expensive { color: var(--red); }
+
+/* Prezzo non comunicato: impianto monitorato senza Gasolio Self in listino */
+.cell-price.tier-nd {
+  color: var(--text-faint);
+  font-weight: 500;
+}
 
 /* Evidenziazione del prezzo minimo in vista */
 .cell-price.is-min {
@@ -653,6 +928,30 @@ body {
   background: rgba(34, 211, 238, 0.1);
 }
 
+/* Legenda: impianto POI fisso monitorato (bordo dorato) */
+.legend-target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(251, 191, 36, 0.16);
+  border: 2px solid var(--amber);
+  color: var(--amber);
+  font-size: 9px;
+  line-height: 1;
+}
+
+/* Legenda: cerchio tratteggiato del Radar Spot Live */
+.legend-spot {
+  width: 18px;
+  height: 12px;
+  border: 2px dashed var(--amber);
+  border-radius: 50%;
+  background: rgba(251, 191, 36, 0.12);
+}
+
 .legend-pill {
   padding: 1px 6px;
   border-radius: 999px;
@@ -708,6 +1007,64 @@ body {
 .marker-cheap { background-color: #4ade80; }
 .marker-mid { background-color: #facc15; }
 .marker-expensive { background-color: #f87171; color: #ffffff; }
+
+/* Pill del Radar Spot Live: ambra, distinta dai marker del dataset di flotta */
+.marker-spot {
+  background-color: #fbbf24;
+  border-color: #fff7ed;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.55);
+  font-size: 10px;
+}
+
+/* I 10 impianti POI fissi aziendali: anello dorato che li distingue come pompe fisse */
+.custom-price-marker.is-target-marker {
+  border: 2px solid #f59e0b;
+  box-shadow:
+    0 0 0 2px rgba(251, 191, 36, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* Centro Radar Spot: marker del punto scelto dall'utente */
+.radar-center-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #78350f;
+  border: 2px solid var(--amber);
+  color: #fffbeb;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+}
+
+/* Cursore a mirino quando il Radar Spot è armato (attesa del click sulla mappa) */
+#map-container.radar-armed,
+#map-container.radar-armed .leaflet-grab,
+#map-container.radar-armed .leaflet-interactive {
+  cursor: crosshair !important;
+}
+
+/* Avviso sovrapposto alla mappa quando il radar è armato */
+.radar-hint {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--amber);
+  border-radius: 999px;
+  background: rgba(11, 15, 25, 0.9);
+  color: var(--amber);
+  font-size: 10.5px;
+  font-weight: 600;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
 
 /* Popup Leaflet in tema scuro */
 .leaflet-popup-content-wrapper,
@@ -843,4 +1200,24 @@ body {
   background: rgba(56, 189, 248, 0.14);
   border-color: rgba(56, 189, 248, 0.35);
   color: #7dd3fc;
+}
+
+/* Badge degli impianti POI fissi monitorati (dorato) */
+.popup-target {
+  background: rgba(251, 191, 36, 0.14);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: var(--amber);
+}
+
+/* Badge dei risultati del Radar Spot Live */
+.popup-spot {
+  background: rgba(251, 191, 36, 0.14);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: var(--amber);
+}
+
+.popup-route.route-spot {
+  background: rgba(251, 191, 36, 0.16);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: var(--amber);
 }
